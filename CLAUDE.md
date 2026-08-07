@@ -1,13 +1,19 @@
-
 # ALPFA Penn State Chapter Site
 
 ## Context
 Club website for ALPFA at Penn State University Park, built and maintained by
 Cristian Aquino (Internal Relations, eBoard). Doubles as a portfolio project.
 
+## Environment
+- Windows, VS Code, PowerShell (no WSL)
+- Node.js LTS, Git for Windows installed
+- Repo: github.com/<your-username>/alpfa-psu-site
+- Live at: alpfa-psu-site.vercel.app
+- Vercel auto-deploys on every push to `main`
+
 ## Stack
 - Next.js (App Router), TypeScript, Tailwind CSS v4
-- Deployed on Vercel, auto-deploys from `main`
+- No database yet — content lives in typed arrays in page files
 
 ## Conventions
 - Brand color is `--alpfa-blue` (#1b4271), registered in globals.css @theme.
@@ -17,6 +23,12 @@ Cristian Aquino (Internal Relations, eBoard). Doubles as a portfolio project.
   file, rendered via .map(). Adding an entry should be a one-line change.
 - Commit format: `type: short description` where type is one of
   feat / fix / style / content / chore
+
+## Current state
+- Pages built: Home, Events (structure only), Eboard, Membership, Resources (placeholder)
+- Eboard page uses initials-in-circle fallback; real photos not added yet
+- Events page has empty upcoming/past flyer arrays awaiting real flyers
+- Site metadata still says "Create Next App" — needs fixing
 
 ## Working with me
 I'm learning web development through this project and need to be able to
