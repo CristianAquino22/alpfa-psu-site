@@ -1,4 +1,5 @@
 import PhotoPlate from "@/components/PhotoPlate";
+import Reveal from "@/components/Reveal";
 
 export default function MembershipPage() {
     return (
@@ -54,44 +55,50 @@ export default function MembershipPage() {
 
                 <ul className="grid gap-y-8 lg:grid-cols-3 lg:gap-x-7 lg:gap-y-0">
                     <li className="border-t border-line-strong pt-5 lg:pt-7">
-                        <span className="font-mono text-meta text-sand">01</span>
-                        <h3 className="font-display font-light text-ink text-display-sm lg:text-[2rem] leading-[1.24] mt-3 mb-3 lg:mt-4">
-                            Follow us on Instagram
-                        </h3>
-                        <p className="text-body lg:text-body-lg leading-prose font-light text-slate">
-                            Every event and meeting gets announced at{" "}
-                            <a
-                                href="https://instagram.com/alpfapsu"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="border-b border-line-strong transition-colors hover:text-alpfa-blue hover:border-alpfa-blue"
-                            >
-                                @alpfapsu
-                            </a>
-                            .
-                        </p>
+                        <Reveal>
+                            <span className="font-mono text-meta text-sand">01</span>
+                            <h3 className="font-display font-light text-ink text-display-sm lg:text-[2rem] leading-[1.24] mt-3 mb-3 lg:mt-4">
+                                Follow us on Instagram
+                            </h3>
+                            <p className="text-body lg:text-body-lg leading-prose font-light text-slate">
+                                Every event and meeting gets announced at{" "}
+                                <a
+                                    href="https://instagram.com/alpfapsu"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="border-b border-line-strong transition-colors hover:text-alpfa-blue hover:border-alpfa-blue"
+                                >
+                                    @alpfapsu
+                                </a>
+                                .
+                            </p>
+                        </Reveal>
                     </li>
 
                     <li className="border-t border-line-strong pt-5 lg:pt-7">
-                        <span className="font-mono text-meta text-sand">02</span>
-                        <h3 className="font-display font-light text-ink text-display-sm lg:text-[2rem] leading-[1.24] mt-3 mb-3 lg:mt-4">
-                            Join the WhatsApp group
-                        </h3>
-                        <p className="text-body lg:text-body-lg leading-prose font-light text-slate">
-                            The link lives in our Instagram bio. That&apos;s where everything
-                            actually happens.
-                        </p>
+                        <Reveal delay={80}>
+                            <span className="font-mono text-meta text-sand">02</span>
+                            <h3 className="font-display font-light text-ink text-display-sm lg:text-[2rem] leading-[1.24] mt-3 mb-3 lg:mt-4">
+                                Join the WhatsApp group
+                            </h3>
+                            <p className="text-body lg:text-body-lg leading-prose font-light text-slate">
+                                The link lives in our Instagram bio. That&apos;s where everything
+                                actually happens.
+                            </p>
+                        </Reveal>
                     </li>
 
                     <li className="border-t border-line-strong pt-5 lg:pt-7">
-                        <span className="font-mono text-meta text-sand">03</span>
-                        <h3 className="font-display font-light text-ink text-display-sm lg:text-[2rem] leading-[1.24] mt-3 mb-3 lg:mt-4">
-                            Show up
-                        </h3>
-                        <p className="text-body lg:text-body-lg leading-prose font-light text-slate">
-                            A mix of in-person and online events each semester. Professional
-                            development, networking, and community.
-                        </p>
+                        <Reveal delay={160}>
+                            <span className="font-mono text-meta text-sand">03</span>
+                            <h3 className="font-display font-light text-ink text-display-sm lg:text-[2rem] leading-[1.24] mt-3 mb-3 lg:mt-4">
+                                Show up
+                            </h3>
+                            <p className="text-body lg:text-body-lg leading-prose font-light text-slate">
+                                A mix of in-person and online events each semester. Professional
+                                development, networking, and community.
+                            </p>
+                        </Reveal>
                     </li>
                 </ul>
             </section>

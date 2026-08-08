@@ -1,4 +1,5 @@
 import FlyerGrid, { type Flyer } from "@/components/FlyerGrid";
+import Reveal from "@/components/Reveal";
 
 const upcomingFlyers: Flyer[] = [
     { src: "/flyers/info_session.jpg", alt: "ALPFA Penn State info session flyer" },
@@ -22,26 +23,32 @@ export default function EventsPage() {
           md:[clip-path:polygon(0_0,100%_0,100%_calc(100%-48px),0_100%)]
           lg:[clip-path:polygon(0_0,100%_0,100%_calc(100%-78px),0_100%)]"
             >
-                <div className="flex items-center gap-3 mb-5 lg:gap-4 lg:mb-[30px]">
-                    <span className="block h-px w-[34px] lg:w-[74px] bg-ink" />
-                    <span className="font-mono text-micro lg:text-label uppercase tracking-mono text-stone">
-                        Events · Fall 2026
-                    </span>
-                </div>
+                <Reveal>
+                    <div className="flex items-center gap-3 mb-5 lg:gap-4 lg:mb-[30px]">
+                        <span className="block h-px w-[34px] lg:w-[74px] bg-ink" />
+                        <span className="font-mono text-micro lg:text-label uppercase tracking-mono text-stone">
+                            Events · Fall 2026
+                        </span>
+                    </div>
+                </Reveal>
 
-                <h1
-                    className="font-display font-light text-ink tracking-display text-balance
+                <Reveal delay={140}>
+                    <h1
+                        className="font-display font-light text-ink tracking-display text-balance
             text-display-lg leading-[1.08] mb-5
             lg:text-[4.25rem] lg:leading-[1.04] lg:mb-8 lg:max-w-[14ch]"
-                >
-                    Come find out what{" "}
-                    <span className="text-alpfa-blue">we&apos;re about.</span>
-                </h1>
+                    >
+                        Come find out what{" "}
+                        <span className="text-alpfa-blue">we&apos;re about.</span>
+                    </h1>
+                </Reveal>
 
-                <p className="text-body lg:text-lead leading-[1.65] lg:leading-[1.7] font-light text-slate mb-9 lg:mb-14 lg:max-w-[44ch]">
-                    Everything you need is on the flyer. Follow us on Instagram for updates
-                    and anything that changes.
-                </p>
+                <Reveal delay={220}>
+                    <p className="text-body lg:text-lead leading-[1.65] lg:leading-[1.7] font-light text-slate mb-9 lg:mb-14 lg:max-w-[44ch]">
+                        Everything you need is on the flyer. Follow us on Instagram for updates
+                        and anything that changes.
+                    </p>
+                </Reveal>
 
                 <FlyerGrid flyers={upcomingFlyers} featured />
             </section>
