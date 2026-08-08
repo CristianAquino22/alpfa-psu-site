@@ -24,7 +24,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://alpfa-psu-site.vercel.app"),
+  metadataBase: new URL("https://alpfapsu.org"),
   title: {
     default: "ALPFA Penn State",
     template: "%s | ALPFA Penn State",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "ALPFA Penn State",
     description:
       "ALPFA at Penn State is the university chapter of the Association of Latino Professionals For America, empowering and developing Latino leaders through professional development, networking, mentorship, and career resources for students.",
-    url: "https://alpfa-psu-site.vercel.app",
+    url: "https://alpfapsu.org",
     siteName: "ALPFA Penn State",
     locale: "en_US",
     type: "website",
