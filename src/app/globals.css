@@ -1,24 +1,156 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --alpfa-blue: #1b4271;
+@theme {
+  /* ---- color ------------------------------------------------ */
+  --color-paper: #fdfcfa;
+  /* page background        */
+  --color-surface: #f4f2ee;
+  /* cards, alt bands       */
+  --color-alpfa-blue: #1b4271;
+  /* brand, mission panel   */
+  --color-sky: #9db4d1;
+  /* labels ON alpfa-blue   */
+  --color-mist: #bed0e5;
+  /* body copy ON alpfa-blue*/
+  --color-ink: #17202b;
+  /* headlines              */
+  --color-slate: #4d5561;
+  /* body copy              */
+  --color-graphite: #5c6470;
+  /* nav links, captions    */
+  --color-stone: #8f8a80;
+  /* muted, wordmark tail   */
+  --color-sand: #a09a8f;
+  /* mono labels on paper   */
+  --color-line: #e5e0d7;
+  /* hairline on paper      */
+  --color-line-strong: #c9c3b8;
+  /* underlines, outlines   */
+  --color-line-alpfa: #34578a;
+  /* hairline ON alpfa-blue */
+
+  /* legacy aliases — remove once nothing uses them */
+  --color-background: #fdfcfa;
+  --color-foreground: #17202b;
+
+  /* ---- type -------------------------------------------------- */
+  --font-display: var(--font-newsreader), Georgia, serif;
+  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --text-micro: 0.5625rem;
+  /*  9px  mobile captions   */
+  --text-label: 0.6875rem;
+  /* 11px  mono eyebrows     */
+  --text-meta: 0.75rem;
+  /* 12px  footer, captions  */
+  --text-ui: 0.9375rem;
+  /* 15px  nav, buttons      */
+  --text-body: 1rem;
+  /* 16px  body — mobile     */
+  --text-body-lg: 1.125rem;
+  /* 18px  body — desktop    */
+  --text-lead: 1.1875rem;
+  /* 19px  hero subhead      */
+  --text-title: 1.375rem;
+  /* 22px  wordmark          */
+  --text-display-sm: 1.6875rem;
+  /* 27px  serif — mobile    */
+  --text-display-md: 2.125rem;
+  /* 34px  menu links        */
+  --text-display-lg: 2.5rem;
+  /* 40px  section serif     */
+  --text-display-xl: 2.875rem;
+  /* 46px  mission headline  */
+  --text-hero: 5.5rem;
+  /* 88px  hero — lg only    */
+
+  --tracking-mono: 0.16em;
+  --tracking-display: -0.02em;
+  --leading-hero: 1.02;
+  --leading-serif: 1.3;
+  --leading-prose: 1.75;
+
+  /* ---- rhythm ------------------------------------------------ */
+  --spacing-gutter: 1.375rem;
+  /*  22px  mobile           */
+  --spacing-gutter-lg: 4rem;
+  /*  64px  desktop          */
+  --spacing-section: 3.75rem;
+  /*  60px  mobile section-y */
+  --spacing-section-lg: 6.875rem;
+  /* 110px  desktop          */
+  --spacing-pull: 1.5rem;
+  /*  24px  mobile overlap   */
+  --spacing-pull-lg: 7.5rem;
+  /* 120px  desktop overlap  */
+  --spacing-cut: 1.875rem;
+  /*  30px  diagonal depth   */
+  --spacing-cut-md: 3rem;
+  /*  48px                   */
+  --spacing-cut-lg: 4.875rem;
+  /*  78px                   */
+
+  /* ---- elevation & motion ------------------------------------ */
+  --shadow-plate: 0 14px 34px rgb(20 25 40 / 0.12);
+  --shadow-plate-lg: 0 20px 50px rgb(20 25 40 / 0.16);
+  --shadow-plate-navy: 0 24px 60px rgb(8 20 36 / 0.40);
+
+  --ease-reveal: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --animate-float-a: floatA 9s ease-in-out infinite;
+  --animate-float-b: floatB 11s ease-in-out infinite;
+  --animate-float-c: floatC 8s ease-in-out infinite;
+  --animate-marquee: marquee 38s linear infinite;
 }
 
+@keyframes floatA {
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-alpfa-blue: var(--alpfa-blue);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -16px, 0);
+  }
 }
 
+@keyframes floatB {
 
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 12px, 0);
+  }
+}
+
+@keyframes floatC {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translate3d(0, -9px, 0) rotate(-2deg);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
 }
