@@ -11,12 +11,14 @@ const links = [
 
 export default function Navbar() {
     return (
-        <nav className="flex items-center justify-between px-6 py-4 bg-alpfa-blue">
-            <Link href="/" className="flex items-center gap-2">
+        <nav className="flex items-center justify-between px-gutter py-4 lg:px-gutter-lg bg-alpfa-blue">
+            <Link href="/" className="flex items-center gap-2 shrink-0">
                 <Image src="/logo_alpfa.svg" alt="ALPFA Penn State" width={36} height={36} />
-                <span className="font-bold text-lg text-white">ALPFA Penn State</span>
+                <span className="font-bold text-lg text-white whitespace-nowrap">
+                    ALPFA Penn State
+                </span>
             </Link>
-            <div className="flex gap-6">
+            <div className="hidden lg:flex gap-6">
                 {links.map((link) => (
                     <Link
                         key={link.href}
