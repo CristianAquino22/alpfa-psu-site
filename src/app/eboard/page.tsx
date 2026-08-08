@@ -26,7 +26,7 @@ const members: Member[] = [
     {
         name: "Isabella Herrera",
         role: "Secretary",
-        gradYear: 2027,
+        gradYear: 2028,
         linkedin: "https://www.linkedin.com/in/isabellaherrerakatz/",
         email: "ich5070@psu.edu",
     },
@@ -48,6 +48,7 @@ const members: Member[] = [
         name: "Diego Ramirez",
         role: "External Relations",
         gradYear: 2029,
+        linkedin: "https://www.linkedin.com/in/diegoramirez-accounting/",
         email: "dir5313@psu.edu",
     },
     {
