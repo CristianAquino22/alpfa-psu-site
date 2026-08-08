@@ -41,30 +41,28 @@ export default function FlyerGrid({
 
     const lightbox = openFlyer ? (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-ink/90 p-gutter lg:p-12 cursor-zoom-out"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-ink/90 px-gutter pt-20 pb-10 lg:p-16 cursor-zoom-out"
             onClick={() => setOpenFlyer(null)}
         >
             <button
                 type="button"
                 onClick={() => setOpenFlyer(null)}
                 aria-label="Close flyer"
-                className="absolute top-5 right-gutter font-mono text-label uppercase tracking-mono text-white/80 py-3 transition-opacity hover:opacity-60 lg:right-gutter-lg"
+                className="absolute top-4 right-gutter z-20 font-mono text-label uppercase tracking-mono
+                  text-white/90 py-3 px-2 transition-opacity hover:opacity-60 lg:right-gutter-lg"
             >
                 Close
             </button>
 
-            <div
-                className="relative h-full w-full max-w-3xl cursor-default"
+            <Image
+                src={openFlyer.src}
+                alt={openFlyer.alt}
+                width={1000}
+                height={1250}
+                sizes="(max-width: 1024px) 100vw, 768px"
                 onClick={(event) => event.stopPropagation()}
-            >
-                <Image
-                    src={openFlyer.src}
-                    alt={openFlyer.alt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 768px"
-                    className="object-contain"
-                />
-            </div>
+                className="h-auto max-h-full w-auto max-w-full object-contain cursor-default"
+            />
         </div>
     ) : null;
 
