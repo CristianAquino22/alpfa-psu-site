@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PhotoPlate from "@/components/PhotoPlate";
 
 export default function Hero() {
@@ -52,24 +53,22 @@ export default function Hero() {
                 </p>
 
                 <div className="flex flex-col gap-3 mb-[30px] lg:flex-row lg:items-center lg:gap-[18px] lg:mb-0">
-                    <a
-                        href="https://instagram.com/alpfapsu"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Link
+                        href="/membership"
                         className="bg-alpfa-blue text-white text-ui font-medium text-center py-4
                     lg:py-[17px] lg:px-[34px] transition-opacity hover:opacity-90"
                     >
                         Join the chapter
-                    </a>
+                    </Link>
 
-                    <a
+                    <Link
                         href="/eboard"
                         className="text-ui text-center py-3.5 border border-line-strong
                 lg:border-0 lg:border-b lg:py-0 lg:pb-[5px] lg:px-0
                 transition-colors hover:border-alpfa-blue hover:text-alpfa-blue"
                     >
                         Meet the board →
-                    </a>
+                    </Link>
                 </div>
             </div>
 

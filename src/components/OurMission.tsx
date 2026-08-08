@@ -1,4 +1,5 @@
 import PhotoPlate from "@/components/PhotoPlate";
+import Reveal from "@/components/Reveal";
 
 const marquee = [
     { src: "/photos/candid-meeting.jpg", w: "w-[210px] lg:w-[330px]" },
@@ -20,29 +21,36 @@ export default function OurMission() {
         >
             <div className="lg:grid lg:grid-cols-[1fr_380px] lg:gap-20 lg:items-start">
                 <div>
-                    <p className="font-mono text-micro lg:text-label uppercase tracking-mono text-sky mb-[18px] lg:mb-7">
-                        Our mission
-                    </p>
+                    <Reveal>
+                        <p className="font-mono text-micro lg:text-label uppercase tracking-mono text-sky mb-[18px] lg:mb-7">
+                            Our mission
+                        </p>
+                    </Reveal>
 
-                    <h2
-                        className="font-display font-light text-pretty
-              text-[1.8125rem] leading-[1.32] mb-[18px]
-              lg:text-display-xl lg:leading-serif lg:mb-[30px] lg:max-w-[20ch]"
-                    >
-                        ALPFA&apos;s mission at Penn State is to build a{" "}
-                        <em>strong, inclusive community</em> by bringing students together
-                        and providing valuable resources and opportunities in the corporate
-                        sector.
-                    </h2>
+                    <Reveal delay={140}>
+                        <h2
+                            className="font-display font-light text-pretty
+                text-[1.8125rem] leading-[1.32] mb-[18px]
+                lg:text-display-xl lg:leading-serif lg:mb-[30px] lg:max-w-[20ch]"
+                        >
+                            ALPFA&apos;s mission at Penn State is to build a{" "}
+                            <em>strong, inclusive community</em> by bringing students
+                            together and providing valuable resources and opportunities in
+                            the corporate sector.
+                        </h2>
+                    </Reveal>
 
-                    <p
-                        className="font-display font-light text-pretty text-mist
-              text-[1.8125rem] leading-[1.32] mb-[26px]
-              lg:text-display-xl lg:leading-serif lg:mb-0 lg:max-w-[20ch]"
-                    >
-                        We strive to foster connections with top firms and companies while
-                        creating a supportive network for professional and personal growth.
-                    </p>
+                    <Reveal delay={240}>
+                        <p
+                            className="font-display font-light text-pretty text-mist
+                text-[1.8125rem] leading-[1.32] mb-[26px]
+                lg:text-display-xl lg:leading-serif lg:mb-0 lg:max-w-[20ch]"
+                        >
+                            We strive to foster connections with top firms and companies
+                            while creating a supportive network for professional and personal
+                            growth.
+                        </p>
+                    </Reveal>
                 </div>
 
                 <PhotoPlate
@@ -81,12 +89,12 @@ export default function OurMission() {
                 <span>University Park, PA</span>
 
                 <a
-                    href="https://instagram.com/alpfapsu"
-                    className="transition-opacity hover:opacity-70"
+                href="https://instagram.com/alpfapsu"
+                className="transition-opacity hover:opacity-70"
                 >
-                    @alpfapsu
-                </a>
-            </div>
+                @alpfapsu
+            </a>
+        </div>
         </section >
     );
 }

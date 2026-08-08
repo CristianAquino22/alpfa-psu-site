@@ -9,7 +9,6 @@ const links = [
     { href: "/events", label: "Events" },
     { href: "/eboard", label: "Eboard" },
     { href: "/membership", label: "Membership" },
-    { href: "/resources", label: "Resources" },
 ];
 
 export default function Navbar() {
@@ -101,7 +100,7 @@ export default function Navbar() {
                     </a>
                 </div >
             )
-}
+            }
         </>
     );
 }
