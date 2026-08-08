@@ -1,29 +1,116 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 export type Flyer = {
     src: string;
-    caption: string;
+    alt: string;
 };
 
-export default function FlyerGrid({ flyers }: { flyers: Flyer[] }) {
-    if (flyers.length === 0) {
-        return <p className="text-gray-500 text-sm">Nothing here yet.</p>;
-    }
+export default function FlyerGrid({
+    flyers,
+    featured = false,
+}: {
+    flyers: Flyer[];
+    featured?: boolean;
+}) {
+    const [openFlyer, setOpenFlyer] = useState<Flyer | null>(null);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!openFlyer) return;
+
+        document.body.style.overflow = "hidden";
+
+        const onKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") setOpenFlyer(null);
+        };
+        window.addEventListener("keydown", onKeyDown);
+
+        return () => {
+            document.body.style.overflow = "";
+            window.removeEventListener("keydown", onKeyDown);
+        };
+    }, [openFlyer]);
+
+    const lightbox = openFlyer ? (
+        <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-ink/90 p-gutter lg:p-12 cursor-zoom-out"
+            onClick={() => setOpenFlyer(null)}
+        >
+            <button
+                type="button"
+                onClick={() => setOpenFlyer(null)}
+                aria-label="Close flyer"
+                className="absolute top-5 right-gutter font-mono text-label uppercase tracking-mono text-white/80 py-3 transition-opacity hover:opacity-60 lg:right-gutter-lg"
+            >
+                Close
+            </button>
+
+            <div
+                className="relative h-full w-full max-w-3xl cursor-default"
+                onClick={(event) => event.stopPropagation()}
+            >
+                <Image
+                    src={openFlyer.src}
+                    alt={openFlyer.alt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 768px"
+                    className="object-contain"
+                />
+            </div>
+        </div>
+    ) : null;
 
     return (
-        <div className="grid sm:grid-cols-2 gap-6">
-            {flyers.map((flyer) => (
-                <div key={flyer.src}>
-                    <Image
-                        src={flyer.src}
-                        alt={flyer.caption}
-                        width={600}
-                        height={800}
-                        className="rounded-lg w-full h-auto"
-                    />
-                    <p className="text-sm text-gray-600 mt-2">{flyer.caption}</p>
-                </div>
-            ))}
-        </div>
+        <>
+            <ul
+                className={`group/list ${featured
+                        ? "grid grid-cols-1 gap-8 sm:grid-cols-2 lg:gap-10"
+                        : "grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-5 lg:gap-6"
+                    }`}
+            >
+                {flyers.map((flyer) => (
+                    <li
+                        key={flyer.src}
+                        className="transition-all duration-500 ease-out
+                          lg:group-hover/list:scale-[0.94] lg:group-hover/list:opacity-40
+                          lg:hover:scale-105! lg:hover:opacity-100! lg:hover:z-10
+                          relative motion-reduce:transition-none
+                          motion-reduce:lg:group-hover/list:scale-100
+                          motion-reduce:lg:hover:scale-100!"
+                    >
+                        <button
+                            type="button"
+                            onClick={() => setOpenFlyer(flyer)}
+                            className="block w-full cursor-zoom-in"
+                            aria-label={`View flyer: ${flyer.alt}`}
+                        >
+                            <div className="relative aspect-[4/5] overflow-hidden bg-surface shadow-plate lg:shadow-plate-lg">
+                                <Image
+                                    src={flyer.src}
+                                    alt={flyer.alt}
+                                    fill
+                                    sizes={
+                                        featured
+                                            ? "(max-width: 640px) 100vw, 50vw"
+                                            : "(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                                    }
+                                    className="object-cover"
+                                />
+                            </div>
+                        </button>
+                    </li>
+                ))}
+            </ul>
+
+            {mounted && lightbox ? createPortal(lightbox, document.body) : null}
+        </>
     );
 }
