@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const links = [
@@ -19,10 +20,18 @@ export default function Navbar() {
             <header className="relative z-30 flex items-center justify-between bg-paper px-gutter py-5 lg:px-gutter-lg lg:py-[30px]">
                 <Link
                     href="/"
-                    className="font-display text-title text-ink whitespace-nowrap"
+                    className="flex items-center gap-2.5 shrink-0"
                     onClick={() => setIsOpen(false)}
                 >
-                    ALPFA <span className="text-stone">Penn State</span>
+                    <Image
+                        src="/logo_alpfa_blue.svg"
+                        alt=""
+                        width={32}
+                        height={32}
+                    />
+                    <span className="font-display text-title text-ink whitespace-nowrap">
+                        ALPFA <span className="text-stone">Penn State</span>
+                    </span>
                 </Link>
 
                 <button
@@ -30,12 +39,12 @@ export default function Navbar() {
                     onClick={() => setIsOpen(true)}
                     aria-expanded={isOpen}
                     aria-controls="mobile-menu"
-                    className="font-mono text-label uppercase tracking-[0.12em] text-graphite py-3 -my-3 pl-4 lg:hidden"
+                    className="font-mono text-label uppercase tracking-[0.12em] text-alpfa-blue py-3 -my-3 pl-4 lg:hidden"
                 >
                     Menu
                 </button>
 
-                <nav className="hidden lg:flex gap-[30px] text-ui text-graphite">
+                <nav className="hidden lg:flex gap-[30px] text-ui text-alpfa-blue">
                     {links.map((link) => (
                         <Link
                             key={link.href}
